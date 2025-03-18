@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="com.finalpa.Assessment">
+        <methods>
+          <include name="validate_The_Listed_Products"/>
+          <include name="user_Click_The_Parfum_Category"/>
+          <include name="user_Clicks_The_All_Filter_Options"/>
+          <include name="browser_Launching"/>
+        </methods>
+      </class> <!-- com.finalpa.Assessment -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
