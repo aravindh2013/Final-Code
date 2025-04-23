@@ -57,11 +57,30 @@ public class Assessment extends Base_class {
 			throw new NullPointerException("Shadow root not found! The page might not be fully loaded.");
 		}
 
-		WebElement accInfo = (WebElement) js.executeScript(
-				"return arguments[0].querySelector('button[data-testid=\"uc-accept-all-button\"]')", shadowRoot);
-		if (accInfo == null) {
-			throw new NullPointerException("'ALL ERLAUBEN' button not found. check the selector.");
-		}
+		//		WebElement accInfo = (WebElement) js.executeScript(
+//				"return arguments[0].querySelector('button[data-testid=\"uc-accept-all-button\"]')", shadowRoot);
+//		if (accInfo == null) {
+//			throw new NullPointerException("'ALL ERLAUBEN' button not found. check the selector.");
+//		} 
+		
+		//*using above code but i getting this error: Getting the error in user_Click_The_Parfum_Category: 'ALL ERLAUBEN' button not found. check the selector*
+		
+		
+		// new code after getting this 	(Getting the error in user_Click_The_Parfum_Category: 'ALL ERLAUBEN' button not found. check the selector.
+
+				WebElement accInfo = null;
+				for (int i = 0; i < 5; i++) {
+				    accInfo = (WebElement) js.executeScript(
+				        "return arguments[0].querySelector('button[data-testid=\"uc-accept-all-button\"]')", shadowRoot);
+				    if (accInfo != null && accInfo.isDisplayed()) {
+				        break; // found it
+				    }
+				    Thread.sleep(1000); // wait and retry
+				}
+				if (accInfo == null) {
+				    throw new NullPointerException("'ALL ERLAUBEN' button not found. Check the selector.");
+				}
+
 		if(accInfo.isEnabled()) {
 			accInfo.click();
 		}else {
