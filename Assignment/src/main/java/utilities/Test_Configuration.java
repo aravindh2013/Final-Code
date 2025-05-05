@@ -11,6 +11,8 @@ public class Test_Configuration {
 
 	public Test_Configuration() throws IOException {
 
+               // File f = new File("File Path of Configuration.properties");
+		
 		File f = new File("C:\\Users\\pdine\\eclipse-workspace\\Assessmen\\Configuration.properties");
 
 		FileInputStream fi = new FileInputStream(f);
